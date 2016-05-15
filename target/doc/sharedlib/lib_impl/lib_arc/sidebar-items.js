@@ -1,1 +1,0 @@
-initSidebarItems({"type":[["LibArc","A shared library which uses atomic ref-counting to track its Symbols."]]});

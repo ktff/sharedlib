@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["FuncTracked","A pointer to a shared function which allows a user-provided ref-counting implementation to avoid outliving its library."]]});

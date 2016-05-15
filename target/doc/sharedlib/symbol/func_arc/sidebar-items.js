@@ -1,1 +1,0 @@
-initSidebarItems({"type":[["FuncArc","A pointer to a shared function which uses atomic ref-counting to avoid outliving its library."]]});

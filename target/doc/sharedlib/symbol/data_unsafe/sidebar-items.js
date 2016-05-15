@@ -1,1 +1,0 @@
-initSidebarItems({"type":[["DataUnsafe","A pointer to shared data which provides no protection against outliving its library."]]});

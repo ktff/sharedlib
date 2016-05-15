@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["Func","A pointer to a shared function which uses a bound lifetime to avoid outliving its library."]]});

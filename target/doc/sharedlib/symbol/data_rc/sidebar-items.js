@@ -1,1 +1,0 @@
-initSidebarItems({"type":[["DataRc","A pointer to shared data which uses non-atomic ref-counting to avoid outliving its library."]]});
