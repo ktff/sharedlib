@@ -1,0 +1,10 @@
+/*.*
+
+!.gitignore
+!index.html
+!License
+!README.md
+
+
+/target/*.*
+!target/doc/**
