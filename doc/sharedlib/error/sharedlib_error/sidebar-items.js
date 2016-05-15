@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["SharedlibError","The error type returned when a function in sharedlib fails."]]});

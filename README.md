@@ -22,22 +22,22 @@ To load a library you can use any of the `Lib`, `LibTracked`, or `LibUnsafe` `st
 [choosing_your_guarantees]: https://tyleo.github.io/sharedlib/target/doc/sharedlib/index.html#choosing-your-guarantees
 
 ### Calling a function in another library
-```norun
+```rust
 unsafe {
     let path_to_lib = "examplelib.dll";
     let lib = try!(Lib::new(path_to_lib));
-    let hello_world_symbol: Symbol<extern "C" fn()> = try!(lib.find_func("hello_world"));
+    let hello_world_symbol: Func<extern "C" fn()> = try!(lib.find_func("hello_world"));
     let hello_world = hello_world_symbol.get();
     hello_world();
 }
 ```
 
 ### Accessing data in another library
-```norun
+```rust
 unsafe {
     let path_to_lib = "examplelib.dll";
     let lib = try!(Lib::new(path_to_lib));
-    let my_usize_symbol: Symbol<&usize> = try!(lib.find_data("my_usize"));
+    let my_usize_symbol: Data<usize> = try!(lib.find_data("my_usize"));
     let my_usize = my_usize_symbol.get();
     assert_eq!(*my_usize, 0);
 }

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["LibraryOpen","An error which occurs when a shared library fails to open."]]});

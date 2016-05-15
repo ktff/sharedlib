@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["LibraryFindSymbol","An error which occurs when a symbol cannot be found in a shared library."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"type":[["SharedlibResult","The result type returned by functions in sharedlib to indicate success or failure."]]});

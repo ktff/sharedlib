@@ -1,0 +1,1 @@
+initSidebarItems({"type":[["LibRc","A shared library which uses non-atomic ref-counting to track its Symbols."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["OsErrorFailure","An error which occurs when an operating system function fails and no information is available."]]});
