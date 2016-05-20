@@ -52,7 +52,7 @@
 <span class='kw'>use</span> <span class='ident'>LibUnsafe</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>sync</span>::<span class='ident'>Arc</span>;
 
-<span class='doccomment'>/// A shared library which uses atomic ref-counting to track its [Symbols](trait.Symbol.html).</span>
+<span class='doccomment'>/// A shared library which implements [LibTracked](struct.LibTracked.html) with atomic ref-counting to track its [Symbols](trait.Symbol.html).</span>
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LibArc</span> <span class='op'>=</span> <span class='ident'>LibTracked</span><span class='op'>&lt;</span><span class='ident'>Arc</span><span class='op'>&lt;</span><span class='ident'>LibUnsafe</span><span class='op'>&gt;&gt;</span>;
 </pre>
 </section>

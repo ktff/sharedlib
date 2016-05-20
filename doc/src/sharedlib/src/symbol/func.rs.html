@@ -66,6 +66,8 @@
 <span id="23">23</span>
 <span id="24">24</span>
 <span id="25">25</span>
+<span id="26">26</span>
+<span id="27">27</span>
 </pre><pre class='rust '>
 <span class='kw'>use</span> <span class='ident'>FuncUnsafe</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>marker</span>::<span class='ident'>PhantomData</span>;
@@ -78,6 +80,8 @@
 }
 
 <span class='kw'>impl</span> <span class='op'>&lt;</span><span class='lifetime'>&#39;a</span>, <span class='ident'>T</span><span class='op'>&gt;</span> <span class='ident'>Func</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span>, <span class='ident'>T</span><span class='op'>&gt;</span> {
+    <span class='doccomment'>/// Creates a new [Func](struct.Func.html).</span>
+    <span class='doccomment'>/// This should only be called within the library.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>new</span>(<span class='ident'>func</span>: <span class='ident'>FuncUnsafe</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> <span class='kw'>Self</span> {
         <span class='ident'>Func</span> {
             <span class='ident'>func</span>: <span class='ident'>func</span>,

@@ -51,7 +51,9 @@
     // some fields omitted
 }</pre><div class='docblock'><p>A pointer to a shared function which uses a bound lifetime to avoid outliving its library.</p>
 </div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl&lt;'a, T&gt; <a class='struct' href='../sharedlib/struct.Func.html' title='sharedlib::Func'>Func</a>&lt;'a, T&gt;</code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(func: <a class='type' href='../sharedlib/type.FuncUnsafe.html' title='sharedlib::FuncUnsafe'>FuncUnsafe</a>&lt;T&gt;) -&gt; Self</code></h4>
-</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl&lt;'a, T&gt; <a class='trait' href='../sharedlib/trait.Symbol.html' title='sharedlib::Symbol'>Symbol</a>&lt;T&gt; for <a class='struct' href='../sharedlib/struct.Func.html' title='sharedlib::Func'>Func</a>&lt;'a, T&gt; <span class='where'>where T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a></span></code></h3><div class='impl-items'><h4 id='method.get' class='method'><code>unsafe fn <a href='../sharedlib/trait.Symbol.html#method.get' class='fnname'>get</a>(&amp;self) -&gt; T</code></h4>
+<div class='docblock'><p>Creates a new <a href="struct.Func.html">Func</a>.
+This should only be called within the library.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl&lt;'a, T&gt; <a class='trait' href='../sharedlib/trait.Symbol.html' title='sharedlib::Symbol'>Symbol</a>&lt;T&gt; for <a class='struct' href='../sharedlib/struct.Func.html' title='sharedlib::Func'>Func</a>&lt;'a, T&gt; <span class='where'>where T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a></span></code></h3><div class='impl-items'><h4 id='method.get' class='method'><code>unsafe fn <a href='../sharedlib/trait.Symbol.html#method.get' class='fnname'>get</a>(&amp;self) -&gt; T</code></h4>
 </div></section>
     <section id='search' class="content hidden"></section>
 

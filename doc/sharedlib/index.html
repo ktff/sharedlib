@@ -46,7 +46,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-0' class='srclink' href='../src/sharedlib/src/lib.rs.html#1-202' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-0' class='srclink' href='../src/sharedlib/src/lib.rs.html#1-206' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>A simple cross-platform library loader.</p>
 
 <p>(<a href="https://crates.io/crates/sharedlib">crates.io</a>) (<a href="https://github.com/Tyleo/sharedlib">github</a>)</p>
@@ -77,12 +77,14 @@
 }</pre>
 
 <h3 id='choosing-your-guarantees' class='section-header'><a href='#choosing-your-guarantees'>Choosing your guarantees</a></h3>
-<p>A common problem when loading a shared library at runtime is that a symbol may be accessed after its library has been unloaded. <a href="index.html">sharedlib</a> attempts to prevent this by allowing the lifetime of the library to be tracked. Each of the different libraries, <a href="struct.Lib.html">Lib</a>, <a href="struct.LibTracked.html">LibTracked</a>, or <a href="struct.LibUnsafe.html">LibUnsafe</a>, provides a different tracking mechanism. Below is a small overview. For more information, see the struct level documentation.</p>
+<p>A common problem when loading a shared library at runtime is that a symbol may be accessed after its library has been unloaded. <a href="index.html">sharedlib</a> attempts to prevent this by allowing the lifetime of the library to be tracked. Each of the different libraries, <a href="struct.LibUnsafe.html">LibUnsafe</a>, <a href="struct.Lib.html">Lib</a>, <a href="struct.LibTracked.html">LibTracked</a>, <a href="type.LibArc.html">LibArc</a>, or <a href="type.LibRc.html">LibRc</a>, provides a different tracking mechanism. Below is a small overview. For more information, see the struct level documentation.</p>
 
 <ul>
 <li><p><a href="struct.LibUnsafe.html">LibUnsafe</a> does not provide any tracking at all. This requires no overhead but responsibility falls on the client to be sure that the library is still alive when its symbols are used.</p></li>
 <li><p><a href="struct.Lib.html">Lib</a> attaches its own lifetime to each symbol it returns. This requires no overhead but it can be difficult to store the returned symbol in a <code>struct</code> because the <code>struct</code> must have a trackable lifetime which outlives the <a href="struct.Lib.html">Lib</a>. In other words, a struct containing a symbol must parameterize around some lifetime <code>a</code>, where <code>a</code> is less than or equal to the lifetime of the library.</p></li>
 <li><p><a href="struct.LibTracked.html">LibTracked</a> returns symbols with ref-counts to the library. This requires overhead but it allows the returned symbol to be stored easily. Additionally, this <code>struct</code> is generic and can be used with <code>Rc</code>, <code>Arc</code>, or a user provided ref-count type.</p></li>
+<li><p><a href="type.LibArc.html">LibArc</a> is a <a href="struct.LibTracked.html">LibTracked</a> which uses atomic ref-counting. This type is provided for convienience.</p></li>
+<li><p><a href="type.LibRc.html">LibRc</a> is a <a href="struct.LibTracked.html">LibTracked</a> which uses non-atomic ref-counting. This type is provided for convienience.</p></li>
 </ul>
 
 <h1 id='pitfalls' class='section-header'><a href='#pitfalls'>Pitfalls</a></h1>
@@ -194,7 +196,8 @@
                         <td><a class='struct' href='struct.Lib.html'
                                title='sharedlib::Lib'>Lib</a></td>
                         <td class='docblock short'>
-                             <p>A shared library which uses bound lifetimes to track its <a href="trait.Symbol.html">Symbols</a>.</p>
+                             <p>A shared library which uses bound lifetimes to track its <a href="trait.Symbol.html">Symbols</a>.
+The inner library cannot be dropped if at least one loose symbol exists.</p>
                         </td>
                     </tr>
                 
@@ -202,7 +205,8 @@
                         <td><a class='struct' href='struct.LibTracked.html'
                                title='sharedlib::LibTracked'>LibTracked</a></td>
                         <td class='docblock short'>
-                             <p>A shared library which which allows a user-provided ref-counting implementation to track its <a href="trait.Symbol.html">Symbols</a>.</p>
+                             <p>A shared library which which allows a user-provided ref-counting implementation to track its <a href="trait.Symbol.html">Symbols</a>.
+The inner library will not be droped until all of teh ref-counts are dropped.</p>
                         </td>
                     </tr>
                 
@@ -210,7 +214,8 @@
                         <td><a class='struct' href='struct.LibUnsafe.html'
                                title='sharedlib::LibUnsafe'>LibUnsafe</a></td>
                         <td class='docblock short'>
-                             <p>A shared library which does not track its <a href="trait.Symbol.html">Symbols</a>.</p>
+                             <p>A shared library which does not track its <a href="trait.Symbol.html">Symbols</a>.
+The inner library may be dropped at any time, even if it has loose symbols.</p>
                         </td>
                     </tr>
                 </table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
@@ -219,7 +224,7 @@
                         <td><a class='enum' href='enum.SharedlibError.html'
                                title='sharedlib::SharedlibError'>SharedlibError</a></td>
                         <td class='docblock short'>
-                             <p>The error type returned when a function in <a href="index.html">sharedlib</a> fails.</p>
+                             <p>An error returned when a function in <a href="index.html">sharedlib</a> fails. Other errors are wrapped in this enum before being returned.</p>
                         </td>
                     </tr>
                 </table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
@@ -285,7 +290,7 @@
                         <td><a class='type' href='type.LibArc.html'
                                title='sharedlib::LibArc'>LibArc</a></td>
                         <td class='docblock short'>
-                             <p>A shared library which uses atomic ref-counting to track its <a href="trait.Symbol.html">Symbols</a>.</p>
+                             <p>A shared library which implements <a href="struct.LibTracked.html">LibTracked</a> with atomic ref-counting to track its <a href="trait.Symbol.html">Symbols</a>.</p>
                         </td>
                     </tr>
                 
@@ -293,7 +298,7 @@
                         <td><a class='type' href='type.LibRc.html'
                                title='sharedlib::LibRc'>LibRc</a></td>
                         <td class='docblock short'>
-                             <p>A shared library which uses non-atomic ref-counting to track its <a href="trait.Symbol.html">Symbols</a>.</p>
+                             <p>A shared library which implements <a href="struct.LibTracked.html">LibTracked</a> with atomic ref-counting to track its <a href="trait.Symbol.html">Symbols</a>.</p>
                         </td>
                     </tr>
                 

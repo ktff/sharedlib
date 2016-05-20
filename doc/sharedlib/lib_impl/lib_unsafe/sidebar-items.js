@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["LibUnsafe","A shared library which does not track its Symbols."]]});
+initSidebarItems({"struct":[["LibUnsafe","A shared library which does not track its Symbols. The inner library may be dropped at any time, even if it has loose symbols."]]});

@@ -72,17 +72,17 @@
 
 <span class='macro'>define_error</span><span class='macro'>!</span>(
     <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Debug</span>)]</span>
-    <span class='attribute'>#[<span class='ident'>doc</span><span class='op'>=</span><span class='string'>&quot;The error type returned when a function in [sharedlib](index.html) fails.&quot;</span>]</span>
+    <span class='attribute'>#[<span class='ident'>doc</span><span class='op'>=</span><span class='string'>&quot;An error returned when a function in [sharedlib](index.html) fails. Other errors are wrapped in this enum before being returned.&quot;</span>]</span>
     <span class='kw'>pub</span> <span class='ident'>error</span> <span class='ident'>SharedlibError</span> {
-        <span class='attribute'>#[<span class='ident'>doc</span><span class='op'>=</span><span class='string'>&quot;Wraps the [LibraryClose](struct.LibraryClose.html) error type into a [SharedlibError](enum.SharedlibError.html).&quot;</span>]</span>
+        <span class='attribute'>#[<span class='ident'>doc</span><span class='op'>=</span><span class='string'>&quot;Wraps a `LibraryClose` error in a [SharedlibError](enum.SharedlibError.html).&quot;</span>]</span>
         <span class='ident'>suberror</span> <span class='ident'>LibraryClose</span>,
-        <span class='attribute'>#[<span class='ident'>doc</span><span class='op'>=</span><span class='string'>&quot;Wraps the [LibraryFindSymbol](struct.LibraryFindSymbol.html) error type into a [SharedlibError](enum.SharedlibError.html).&quot;</span>]</span>
+        <span class='attribute'>#[<span class='ident'>doc</span><span class='op'>=</span><span class='string'>&quot;Wraps a `LibraryFindSymbol` error in a [SharedlibError](enum.SharedlibError.html).&quot;</span>]</span>
         <span class='ident'>suberror</span> <span class='ident'>LibraryFindSymbol</span>,
-        <span class='attribute'>#[<span class='ident'>doc</span><span class='op'>=</span><span class='string'>&quot;Wraps the [LibraryOpen](struct.LibraryOpen.html) error type into a [SharedlibError](enum.SharedlibError.html).&quot;</span>]</span>
+        <span class='attribute'>#[<span class='ident'>doc</span><span class='op'>=</span><span class='string'>&quot;Wraps a `LibraryOpen` error in a [SharedlibError](enum.SharedlibError.html).&quot;</span>]</span>
         <span class='ident'>suberror</span> <span class='ident'>LibraryOpen</span>,
-        <span class='attribute'>#[<span class='ident'>doc</span><span class='op'>=</span><span class='string'>&quot;Wraps the [OsError](struct.OsError.html) error type into a [SharedlibError](enum.SharedlibError.html).&quot;</span>]</span>
+        <span class='attribute'>#[<span class='ident'>doc</span><span class='op'>=</span><span class='string'>&quot;Wraps a `OsError` error in a [SharedlibError](enum.SharedlibError.html).&quot;</span>]</span>
         <span class='ident'>suberror</span> <span class='ident'>OsError</span>,
-        <span class='attribute'>#[<span class='ident'>doc</span><span class='op'>=</span><span class='string'>&quot;Wraps the [OsErrorFailure](struct.OsErrorFailure.html) error type into a [SharedlibError](enum.SharedlibError.html).&quot;</span>]</span>
+        <span class='attribute'>#[<span class='ident'>doc</span><span class='op'>=</span><span class='string'>&quot;Wraps a `OsErrorFailure` error in a [SharedlibError](enum.SharedlibError.html).&quot;</span>]</span>
         <span class='ident'>suberror</span> <span class='ident'>OsErrorFailure</span>
     }
 );

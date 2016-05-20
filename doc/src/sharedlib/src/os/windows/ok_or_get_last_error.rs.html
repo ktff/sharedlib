@@ -94,7 +94,7 @@
 <span class='kw'>impl</span> <span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span> <span class='ident'>OkOrGetLastError</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span> <span class='kw'>for</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span> {
     <span class='kw'>fn</span> <span class='ident'>ok_or_get_last_error</span><span class='op'>&lt;</span><span class='ident'>TStr</span><span class='op'>&gt;</span>(<span class='self'>self</span>, <span class='ident'>function</span>: <span class='ident'>TStr</span>) <span class='op'>-&gt;</span> <span class='ident'>R</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span>
         <span class='kw'>where</span> <span class='ident'>TStr</span>: <span class='ident'>AsRef</span><span class='op'>&lt;</span><span class='ident'>str</span><span class='op'>&gt;</span> {
-       <span class='kw'>match</span> <span class='self'>self</span> {
+        <span class='kw'>match</span> <span class='self'>self</span> {
             <span class='prelude-val'>Some</span>(<span class='ident'>some</span>) <span class='op'>=&gt;</span> <span class='prelude-val'>Ok</span>(<span class='ident'>some</span>),
             <span class='prelude-val'>None</span> <span class='op'>=&gt;</span> {
                 <span class='kw'>match</span> <span class='kw'>unsafe</span> { <span class='ident'>kernel32</span>::<span class='ident'>GetLastError</span>() } {

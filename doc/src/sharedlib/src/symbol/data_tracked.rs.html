@@ -67,6 +67,8 @@
 <span id="24">24</span>
 <span id="25">25</span>
 <span id="26">26</span>
+<span id="27">27</span>
+<span id="28">28</span>
 </pre><pre class='rust '>
 <span class='kw'>use</span> <span class='ident'>DataUnsafe</span>;
 <span class='kw'>use</span> <span class='ident'>LibUnsafe</span>;
@@ -81,6 +83,8 @@
 
 <span class='kw'>impl</span> <span class='op'>&lt;</span><span class='ident'>T</span>, <span class='ident'>TLib</span><span class='op'>&gt;</span> <span class='ident'>DataTracked</span><span class='op'>&lt;</span><span class='ident'>T</span>, <span class='ident'>TLib</span><span class='op'>&gt;</span>
     <span class='kw'>where</span> <span class='ident'>TLib</span>: <span class='ident'>AsRef</span><span class='op'>&lt;</span><span class='ident'>LibUnsafe</span><span class='op'>&gt;</span> <span class='op'>+</span> <span class='ident'>Clone</span> {
+    <span class='doccomment'>/// Creates a new [DataTracked](struct.DataTracked.html).</span>
+    <span class='doccomment'>/// This should only be called within the library.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>new</span>(<span class='ident'>data</span>: <span class='ident'>DataUnsafe</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span>, <span class='ident'>lib</span>: <span class='ident'>TLib</span>) <span class='op'>-&gt;</span> <span class='kw'>Self</span> {
         <span class='ident'>DataTracked</span> {
             <span class='ident'>data</span>: <span class='ident'>data</span>,
